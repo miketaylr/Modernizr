@@ -502,7 +502,10 @@ window.Modernizr = (function(window,doc){
             docElement.className = docElement.className.replace(/(no-)?font.*?\b/,'') + (fontret ? ' ' : ' no-') + fontface;
             
             callback && (isCallbackCalled = true) && callback(fontret);
-            isFakeBody && setTimeout(function(){body.parentNode.removeChild(body)}, 50);
+            isFakeBody && setTimeout(function(){
+              body.parentNode.removeChild(body);
+              st.parentNode.removeChild(st);
+            }, 50);
           }
 
           setTimeout(delayedCheck,fontfaceCheckDelay);
